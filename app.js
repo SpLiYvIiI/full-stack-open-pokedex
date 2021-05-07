@@ -8,7 +8,7 @@ app.get('/health', (req, res) => {
   res.send('ok')
 })
 app.get('/version', (req, res) => {
-  res.send('v29') // change this string to ensure a new version deployed
+  res.send('v4') // change this string to ensure a new version deployed
 })
 app.use(express.static('dist'))
 
