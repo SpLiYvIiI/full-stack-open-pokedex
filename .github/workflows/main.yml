@@ -42,7 +42,7 @@ jobs:
             checkstring: "ok"
             rollbackonhealthcheckfailed: true
 
-            
+
         - uses: actions/checkout@v2
 
 
@@ -52,4 +52,6 @@ jobs:
           env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             DEFAULT_BUMP : patch
+            RELEASE_BRANCHES: main
+
 
