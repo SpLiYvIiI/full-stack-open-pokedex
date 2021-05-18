@@ -31,13 +31,6 @@ jobs:
             command: npm run test:e2e
             start: npm run start-prod
             wait-on: http://localhost:5000
-        - uses: actions/checkout@v2
-        - name: Bump version and push tag
-          if: ${{ github.event_name == 'push'}}
-          uses: anothrNick/github-tag-action@1.33.0
-          env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-            DEFAULT_BUMP : patch
         - name: deploy
           if: ${{ github.event_name == 'push'}}
           uses: akhileshns/heroku-deploy@v3.12.12 
@@ -48,4 +41,15 @@ jobs:
             healthcheck: "https://part11fso.herokuapp.com/health"
             checkstring: "ok"
             rollbackonhealthcheckfailed: true
+
+            
+        - uses: actions/checkout@v2
+
+
+        - name: Bump version and push tag
+          if: ${{ github.event_name == 'push'}}
+          uses: anothrNick/github-tag-action@1.33.0
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            DEFAULT_BUMP : patch
 
