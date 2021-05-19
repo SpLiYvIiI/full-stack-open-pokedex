@@ -54,7 +54,6 @@ jobs:
             DEFAULT_BUMP : patch
             RELEASE_BRANCHES: main
         - name: notify slack if success
-          if: ${{ github.event_name == 'push' && !contains(join(github.event.commits.*.message, ' '), '#skip') && success()}}
           uses: 8398a7/action-slack@v3
           with:
             status: custom
