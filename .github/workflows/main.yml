@@ -77,5 +77,5 @@ jobs:
               fields: repo,message,commit,author,took
             env:
               SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }} 
-            if: always() 
+            
 
