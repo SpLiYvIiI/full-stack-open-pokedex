@@ -69,12 +69,5 @@ jobs:
           env:
             SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           if:  ${{ github.event_name == 'push' && !contains(join(github.event.commits.*.message, ' '), '#skip') && success() }}
-        - name: notify slack if racxa
-          - uses: 8398a7/action-slack@v3
-            with:
-              status: ${{ job.status }}
-              fields: repo,message,commit,author,took
-            env:
-              SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }} 
-            if: ${{ github.event_name == 'push' && !contains(join(github.event.commits.*.message, ' '), '#skip') && failure() }}
+      
 
